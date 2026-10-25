@@ -1,0 +1,152 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(52, 118, 168);
+    margin: 0;
+    padding: 30px 15px;
+    color: #333;
+}
+
+.logo-box {
+    text-align: left; 
+    margin-bottom: 20px; 
+}
+
+.logo-img {
+    max-width: 100px; 
+    height: auto; 
+}
+
+
+#container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: rgb(132, 180, 243);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    
+}
+
+
+h1 {
+    color: #0b4f7a;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #0b4f7a;
+    border-bottom: 2px solid #eaf2f8;
+    padding-bottom: 8px;
+}
+
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+
+input:focus {
+    border-color: #0b4f7a;
+    box-shadow: 0 0 5px rgba(11, 79, 122, 0.3);
+}
+
+
+button {
+    padding: 12px 18px;
+    margin: 15px 5px 5px 0;
+    border: none;
+    border-radius: 6px;
+    background-color: #0b4f7a;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+button:hover {
+    background-color: #083957;
+}
+
+
+#resultado {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background-color: #f4f8fb;
+    border-left: 5px solid #0b4f7a;
+    border-radius: 6px;
+}
+
+#resultado p {
+    font-size: 16px;
+    margin: 12px 0;
+}
+
+
+#erro {
+    color: #c62828;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #0b4f7a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #083957;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    #container {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+.aprovado {
+    color: green;
+    font-weight: bold;
+}
+
+.reprovado {
+    color: red;
+    font-weight: bold;
+}
