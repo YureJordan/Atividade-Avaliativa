@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim Escolar</title>
+    <link rel="stylesheet" href="styleavaliativa.css">
+    <div id="container">
+
+        <div class="logo-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpiwD7fe6RXQj8JQQti3AufW7BwOVrp2uxGgXk-0-pTgMZw6hyk28ah4w&s=10 alt="Logo da Escola" class="logo-img">
+        </div>
+    
+
+    
+<body>
+    
+
+    <div id="container">
+
+        <h1>Boletim Escolar</h1>
+
+        <h2>Dados do aluno</h2>
+
+        <label>Nome do aluno:</label>
+        <input type="text" id="nome">
+
+        <label>Nota 1:</label>
+        <input type="number" id="nota1" min="0" max="10" step="0.1">
+
+        <label>Nota 2:</label>
+        <input type="number" id="nota2" min="0" max="10" step="0.1">
+
+        <label>Nota 3 (opcional):</label>
+        <input type="number" id="nota3" min="0" max="10" step="0.1">
+
+        <label>Nota 4 (opcional):</label>
+        <input type="number" id="nota4" min="0" max="10" step="0.1">
+
+        <br>
+
+        <button onclick="calcularMedia()">MÉDIA</button>
+        <button onclick="verificarSituacao()">SITUAÇÃO</button>
+        <button onclick="limpar()">LIMPAR</button>
+
+        <p id="erro"></p>
+
+        <div id="resultado">
+            <h2>Resultado</h2>
+
+            <p>Nome: <span id="resNome">---</span></p>
+            <p>Média: <span id="resMedia">---</span></p>
+            <p>Situação: <span id="resSituacao">---</span></p>
+        </div>
+
+    </div>
+
+    <script>
+        function calcularMedia() {
+            let nome = document.getElementById("nome").value;
+
+            let nota1 = document.getElementById("nota1").value;
+            let nota2 = document.getElementById("nota2").value;
+            let nota3 = document.getElementById("nota3").value;
+            let nota4 = document.getElementById("nota4").value;
+
+            let soma = 0;
+            let quantidade = 0;
+
+            document.getElementById("erro").innerHTML = "";
+
+            if (nome == "" || nota1 == "" || nota2 == "") {
+                document.getElementById("erro").innerHTML =
+                    "Preencha o nome e pelo menos duas notas.";
+                return;
+            }
+
+            let notas = [nota1, nota2, nota3, nota4];
+
+            for (let i = 0; i < notas.length; i++) {
+                if (notas[i] != "") {
+                    let nota = Number(notas[i]);
+
+                    if (nota < 0 || nota > 10 || isNaN(nota)) {
+                        document.getElementById("erro").innerHTML =
+                            "Digite notas entre 0 e 10.";
+                        return;
+                    }
+
+                    soma = soma + nota;
+                    quantidade = quantidade + 1;
+                }
+            }
+
+            let media = soma / quantidade;
+
+            document.getElementById("resNome").innerHTML = nome;
+            document.getElementById("resMedia").innerHTML =
+                media.toFixed(2);
+
+            document.getElementById("resSituacao").innerHTML = "---";
+        }
+
+        
+        function verificarSituacao() {
+            calcularMedia();
+
+            let erro = document.getElementById("erro").innerHTML;
+
+            if (erro != "") {
+                return;
+            }
+
+            let media = Number(
+                document.getElementById("resMedia").innerHTML
+            );
+
+            if (media >= 7) {
+                document.getElementById("resSituacao").innerHTML = "Aprovado";
+                document.getElementById("resSituacao").className = "aprovado";
+            } else {
+                document.getElementById("resSituacao").innerHTML ="Reprovado";
+                document.getElementById("resSituacao").className = "reprovado";
+            }
+        }
+
+        function limpar() {
+            document.getElementById("nome").value = "";
+            document.getElementById("nota1").value = "";
+            document.getElementById("nota2").value = "";
+            document.getElementById("nota3").value = "";
+            document.getElementById("nota4").value = "";
+
+            document.getElementById("resNome").innerHTML = "---";
+            document.getElementById("resMedia").innerHTML = "---";
+            document.getElementById("resSituacao").innerHTML = "---";
+            document.getElementById("erro").innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>
